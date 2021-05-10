@@ -1,10 +1,121 @@
 *{
     margin:0;
     padding: 0;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+}
+body{
+    background: hsl(180, 52%, 96%);
 }
 .background{
     background-color: hsl(180, 29%, 50%);
     background-image: url('images/bg-header-mobile.svg');
     width: 100vw;
     height: 15vh;
+    margin-bottom: 7vh;
+}
+main{
+    /*margin: 2vh 8vw;*/
+    list-style: none;
+    padding: 2vh 6vw;
+}
+
+#jobs{
+    margin-right: 4vw;
+}
+
+#job-listings{
+    list-style: none;
+    background-color: white;
+    padding-left: 8vw;
+    padding-right: 8vw;
+    border-left: 5px solid hsl(180, 29%, 50%);
+    border-radius: 5px;
+    margin: 0 0 7vh 0;
+    box-shadow: 4px 7px 20px 0px #8cbfbf;
+}
+
+li{
+    margin-bottom: 2vh;
+}
+
+#listing{
+    list-style: none;
+}
+
+#list-img{
+    height: 4vh;
+}
+
+#list-img img{
+    width: 19vw;
+    position: relative;
+    bottom: 2.2em;
+    right: 0.7em;
+}
+
+#list-head{
+    display: grid;
+    grid-template-columns: 0.8fr 0.5fr 1fr;
+}
+
+#company-name{
+  color:hsl(180, 29%, 50%);
+  font-weight: 700;
+  margin: auto auto auto 0;
+}
+
+#new{
+    border: solid 1px white;
+    padding: 6px 8px;
+    margin: auto auto auto 1vw;
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 20px;
+    background: hsl(180, 29%, 50%);
+}
+
+#featured{
+    border: solid 1px white;
+    padding: 6px 8px;
+    margin: auto auto auto 1vw;
+    color: white;
+    font-weight: 700;
+    font-size: 11px;
+    text-align: center;
+    border-radius: 20px;
+    background: black;
+}
+
+#job-role{
+    font-weight: 700;
+}
+
+#job-info{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid lightgray;
+    color: hsl(180, 8%, 52%);
+    padding-bottom: 2vh;
+}
+
+#filter-tags{
+    display: grid;
+    grid-template-columns: fit-content(20vw) fit-content(20vw) fit-content(20vw);
+}
+
+.tag{
+    list-style: none;
+    width: fit-content;
+    background-color: hsl(180, 31%, 95%);
+    color: hsl(180, 29%, 50%);
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 700;
+    margin-right: 4vw;
+    margin-left: auto;
 }
