@@ -1,17 +1,16 @@
-let newData = "";
+
 fetch('js/data.json')
 .then(function(resp) {
     return resp.json();
 })
 .then(function(data) {
-    newData = data;
     data.forEach(job => {
     createJobs(job.logo, job.company, job.new, job.featured, job.position, job.postedAt, job.contract, job.location, job.languages, job.tools);
 })
 })
 
-
 const jobs = document.getElementById('jobs');
+
 
 
 
