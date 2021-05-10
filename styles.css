@@ -1,0 +1,10 @@
+*{
+    margin:0;
+    padding: 0;
+}
+.background{
+    background-color: hsl(180, 29%, 50%);
+    background-image: url('images/bg-header-mobile.svg');
+    width: 100vw;
+    height: 15vh;
+}
