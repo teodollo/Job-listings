@@ -183,3 +183,49 @@ li{
     margin-right: 4vw;
     margin-left: auto;
 }
+
+@media screen and (min-width: 700px) {
+    #background{
+        width: 100vw;
+    }
+
+    #filter-buttons{
+        grid-template-columns: repeat(3,1fr);
+        width: 50vw;
+    }
+
+    #job-listings{
+        width: 75vw;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #job-listings{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    #filter-tags{
+        margin: auto;
+    }
+
+    #job-info{
+        border-bottom: none;
+    }
+
+    #job-listings{
+        padding-right: 0;
+        padding-left: 18vw;
+    }
+
+    #list-img{
+        height: 1vh;
+    }
+
+    #list-img img {
+        width: 9em;
+        position: relative;
+        bottom: -2.5em;
+        right: 10.7em;
+    }
+} 
