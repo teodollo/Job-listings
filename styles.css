@@ -83,7 +83,6 @@ body{
 main{
     list-style: none;
     padding: 2vh 5vw;
-    max-width: 375px;
 }
 
 
@@ -231,8 +230,12 @@ li{
         cursor: pointer;
     }
 
+    #filter-buttons button{
+        background: linear-gradient(to right, hsl(180, 52%, 96%) 72%, hsl(180, 29%, 50%) 28%);
+    }
+
     #filter-buttons button:hover{
-        background: linear-gradient(to right, hsl(180, 52%, 96%) 71%,  black 29%);
+        background: linear-gradient(to right, hsl(180, 52%, 96%) 72%,  black 23%);
     }
 
     #clear{
@@ -246,12 +249,20 @@ li{
         grid-template-columns: 1fr 1fr;
     }
 
+    #filters{
+        width: 70vw;
+    }
+
     #filter-tags{
         margin: auto;
     }
 
     #filter-buttons{
         width: 38vw;
+    }
+
+    #filter-buttons button{
+        column-gap: 0.8vw;
     }
 
     #job-info{
@@ -262,6 +273,9 @@ li{
     #job-listings{
         padding-right: 0;
         padding-left: 18vw;
+        width: 63vw;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #job-role{
@@ -293,6 +307,18 @@ li{
 
     #filter-buttons{
         width: 25vw;
+    }
+
+    #job-listings{
+        width: 50vw;
+    }
+
+    #filter-buttons button{
+        background: linear-gradient(to right, hsl(180, 52%, 96%) 78%, hsl(180, 29%, 50%) 22%);
+    }
+
+    #filter-buttons button:hover{
+        background: linear-gradient(to right, hsl(180, 52%, 96%) 78%,  black 22%);
     }
 }
 
