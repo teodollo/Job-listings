@@ -184,6 +184,12 @@ li{
     margin-left: auto;
 }
 
+@media screen and (min-width: 414px) {
+    #background{
+        width: 100vw;
+    }
+}
+
 @media screen and (min-width: 700px) {
     #background{
         width: 100vw;
