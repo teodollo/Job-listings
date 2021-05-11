@@ -177,7 +177,7 @@ li{
     background-color: hsl(180, 31%, 95%);
     color: hsl(180, 29%, 50%);
     border: 1px solid white;
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 9px;
     font-weight: 700;
     margin-right: 4vw;
@@ -304,14 +304,6 @@ li{
     #list-img img{
         width: 7em;
         bottom: -0.8vh;
-    }
-
-    #job-role{
-        font-size: 109%;
-    }
-
-    #new{
-        font-size: 109%;
     }
 
     #filter-buttons button{
