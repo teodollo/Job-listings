@@ -184,7 +184,7 @@ li{
     margin-left: auto;
 }
 
-@media screen and (min-width: 414px) {
+@media screen and (min-width: 411px) {
     #background{
         width: 100vw;
     }
