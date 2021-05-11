@@ -203,6 +203,40 @@ li{
     #job-listings{
         width: 75vw;
     }
+
+    #list-head {
+        width: 10vw;
+    }
+
+    #filter-buttons{
+        padding-top: 0;
+        
+    }
+
+    #filters{
+        padding-bottom: 0;
+    }
+
+    .tag{
+        cursor: pointer;
+    }
+
+    .tag:hover{
+        background-color:hsl(180, 29%, 50%);
+        color:white;
+    }
+
+    .filter{
+        cursor: pointer;
+    }
+
+    #filter-buttons button:hover{
+        background: linear-gradient(to right, hsl(180, 52%, 96%) 71%,  black 29%);
+    }
+
+    #clear{
+        cursor: pointer;
+    }
 }
 
 @media screen and (min-width: 1024px) {
@@ -215,8 +249,13 @@ li{
         margin: auto;
     }
 
+    #filter-buttons{
+        width: 38vw;
+    }
+
     #job-info{
         border-bottom: none;
+        width: 23vw;
     }
 
     #job-listings{
@@ -224,14 +263,28 @@ li{
         padding-left: 18vw;
     }
 
+    #job-role{
+        font-size: 19px;
+    }
+
     #list-img{
         height: 1vh;
+
     }
 
     #list-img img {
         width: 9em;
         position: relative;
-        bottom: -2.5em;
+        bottom: -0.5em;
         right: 10.7em;
     }
 } 
+
+@media screen and (min-width:1225px) {
+    #list-img img{
+        bottom: -0.7em;
+        right: 14.7em;
+    }
+
+
+}
