@@ -1,4 +1,6 @@
 
+//-------------JSON---------------//
+
 fetch('js/data.json')
 .then(function(resp) {
     return resp.json();
@@ -9,10 +11,68 @@ fetch('js/data.json')
 })
 })
 
+//-----test area
+
+const test1 = ['javascript','ruby', 'css']
+const test2 = ['javascript','css','ruby']
+
+
+
+
+//-------------DOM ELEMENTS-----------------//
+
 const jobs = document.getElementById('jobs');
+const filters = document.getElementById('filters')
+const filterTags = document.getElementById('filter-tags')
+const filterButtons = document.getElementById('filter-buttons')
+
+let filterArray = [];
+//-------------EVENT LISTENERS----------------------//
+
+//Add Buttons To Filter Depending On Language/Tool Clicked On
+jobs.addEventListener('click', e => {
+  
+})
+
+jobs.addEventListener('click', (e) => {
+    createFilterButton(e);
+})
+
+//Remove Button if single button is clicked. Remove all buttons if clear is clicked
+filters.addEventListener('click', (e) => {
+    removeFilterButtons(e)
+    for (let i = 0; i <jobs.children.length; i++) {
+        jobs.children[i].style.display = 'grid';
+    }
+    checkForMatchingFilter();
+})
 
 
+jobs.addEventListener('click', e => {
+    checkForMatchingFilter();
 
+
+})
+
+const checkForMatchingFilter = () => {
+    for (let i = 0; i < jobs.children.length; i++) {
+        let jobArray = [];
+        for (let z = 0; z < jobs.children[i].children[1].children.length; z++) {
+            jobArray.push(jobs.children[i].children[1].children[z].textContent)
+
+        }
+        for (let c = 0; c < filterArray.length; c++) {
+            if (!jobArray.includes(filterArray[c])) {
+                jobs.children[i].style.display = 'none';
+            }
+        }
+
+    }
+    
+}
+//---------------------------FUNCTIONS--------------------------------//
+
+//------------------Create Job List Items
 
 function createJobs(img, company, now, featured, position, day, time, location, tag, tool ) {
   const ul = document.createElement('UL');
@@ -98,4 +158,52 @@ function createJobs(img, company, now, featured, position, day, time, location, 
 
   ul.appendChild(filterTags);
   jobs.appendChild(ul);
+}
+
+
+//----create filter buttons in the filter menu
+
+
+
+
+const createFilterButton = (e) => {
+    if (e.target.className === 'tag') {
+        if (!filterArray.includes(e.target.textContent)) {
+            filters.style.display = 'grid';
+            const button = document.createElement('BUTTON');
+            button.textContent = e.target.textContent;
+
+            filterArray.push(e.target.textContent)
+            const img = document.createElement('IMG')
+            img.src = './images/icon-remove.svg';
+            button.appendChild(img);
+            button.className = 'filter'
+            filterButtons.appendChild(button)
+        }
+    };
+
+};
+
+//----Remove Button Or Clear All Buttons
+const removeFilterButtons = e => {
+    if (e.target.id === 'clear') {
+        while (filterButtons.firstChild) {
+            filterButtons.removeChild(filterButtons.lastChild);
+            filterArray = [];
+          }
+    };
+    if (e.target.className === 'filter' ) {
+        let arrayIndex = filterArray.indexOf(e.target.textContent)
+        filterArray.splice(arrayIndex, 1)
+        filterButtons.removeChild(e.target)
+
+    }
+    if (e.target.nodeName === 'IMG') {
+        let arrayIndex = filterArray.indexOf(e.target.parentNode.textContent)
+        filterArray.splice(arrayIndex, 1)
+        filterButtons.removeChild(e.target.parentNode)
+    }
+    if (filterButtons.children.length === 0) {
+        filters.style.display = 'none';
+    }
 }
