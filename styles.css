@@ -287,11 +287,38 @@ li{
 
 @media screen and (min-width:1225px) {
     #list-img img{
-        bottom: -0.7em;
-        right: 14.7em;
+        bottom: -1.3em;
+        right: 11.7em;
     }
 
     #filter-buttons{
         width: 25vw;
+    }
+}
+
+@media screen and (min-width: 3500px) {
+    *{
+        font-size: 115% !important;
+    }
+
+    #list-img img{
+        width: 7em;
+        bottom: -0.8vh;
+    }
+
+    #job-role{
+        font-size: 109%;
+    }
+
+    #new{
+        font-size: 109%;
+    }
+
+    #filter-buttons button{
+        column-gap: 1vw;
+    }
+
+    #filter-buttons img{
+        width: 1vw
     }
 }
