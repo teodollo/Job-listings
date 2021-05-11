@@ -13,11 +13,6 @@ fetch('js/data.json')
 
 //-----test area
 
-const test1 = ['javascript','ruby', 'css']
-const test2 = ['javascript','css','ruby']
-
-
-
 
 //-------------DOM ELEMENTS-----------------//
 
@@ -30,17 +25,17 @@ let filterArray = [];
 //-------------EVENT LISTENERS----------------------//
 
 //Add Buttons To Filter Depending On Language/Tool Clicked On
-jobs.addEventListener('click', e => {
-  
-})
+
 
 jobs.addEventListener('click', (e) => {
+
     createFilterButton(e);
 })
 
 //Remove Button if single button is clicked. Remove all buttons if clear is clicked
 filters.addEventListener('click', (e) => {
     removeFilterButtons(e)
+    //making every job visible before checking filters
     for (let i = 0; i <jobs.children.length; i++) {
         jobs.children[i].style.display = 'grid';
     }
@@ -54,48 +49,38 @@ jobs.addEventListener('click', e => {
 
 })
 
-const checkForMatchingFilter = () => {
-    for (let i = 0; i < jobs.children.length; i++) {
-        let jobArray = [];
-        for (let z = 0; z < jobs.children[i].children[1].children.length; z++) {
-            jobArray.push(jobs.children[i].children[1].children[z].textContent)
 
-        }
-        for (let c = 0; c < filterArray.length; c++) {
-            if (!jobArray.includes(filterArray[c])) {
-                jobs.children[i].style.display = 'none';
-            }
-        }
 
-    }
-    
-}
 //---------------------------FUNCTIONS--------------------------------//
 
 //------------------Create Job List Items
 
 function createJobs(img, company, now, featured, position, day, time, location, tag, tool ) {
+  //The job listing created  
   const ul = document.createElement('UL');
   ul.id = 'job-listings';
-
+  
+  //listing information
   const listing = document.createElement('UL');
   listing.id = 'listing';
-
+  
+  //list image
   const listImg = document.createElement('LI');
   listImg.id = "list-img"
   const image = document.createElement('IMG');
   image.src = img;
   listImg.appendChild(image);
   listing.appendChild(listImg);
-
+  
+  //List head that holds company new and featured
   const listHead = document.createElement('LI');
   listHead.id = 'list-head';
-
+  //Company Name
   const companyName = document.createElement('P');
   companyName.id = 'company-name'
   companyName.innerHTML = company;
   listHead.appendChild(companyName);
-
+  //New! Bubble
   const newPost = document.createElement('P');
   newPost.id = 'new';
   newPost.innerHTML = 'NEW!';
@@ -105,7 +90,7 @@ function createJobs(img, company, now, featured, position, day, time, location, 
   } else {
       newPost.style.display = 'none';
   }
-
+  //Featured Bubble
   const feature = document.createElement('P');
   feature.id = 'featured';
   feature.innerHTML = 'FEATURED';
@@ -117,21 +102,26 @@ function createJobs(img, company, now, featured, position, day, time, location, 
 }
   listing.appendChild(listHead)
   
+  //Job Role
   const jobRole = document.createElement('LI');
   jobRole.id = 'job-role';
   jobRole.innerHTML = position;
   listing.appendChild(jobRole)
-
+  
+  //Info About Job
   const jobInfo = document.createElement('LI');
   jobInfo.id = 'job-info';
+  //Time of Posting
   const posted = document.createElement('P');
   posted.id = 'posted';
   posted.innerHTML = day;
   jobInfo.appendChild(posted);
+  //Full time or Part Time
   const contract = document.createElement('P');
   contract.id = 'contract';
   contract.innerHTML = time;
   jobInfo.appendChild(contract);
+  //Location of Job
   const place = document.createElement('P');
   place.id = 'location';
   place.innerHTML = location;
@@ -139,7 +129,8 @@ function createJobs(img, company, now, featured, position, day, time, location, 
   listing.appendChild(jobInfo);
 
   ul.appendChild(listing);
-
+  
+  //Tags with Programming Languages
   const filterTags = document.createElement('UL');
   filterTags.id = 'filter-tags';
   tag.forEach(tags => {
@@ -148,7 +139,8 @@ function createJobs(img, company, now, featured, position, day, time, location, 
       tagLi.innerHTML = tags;
       filterTags.appendChild(tagLi);
   })
-
+  
+  //Tags with Programming Tools
   tool.forEach(tol => {
     const toolLi = document.createElement('LI');
     toolLi.className = 'tag';
@@ -162,9 +154,6 @@ function createJobs(img, company, now, featured, position, day, time, location, 
 
 
 //----create filter buttons in the filter menu
-
-
-
 
 const createFilterButton = (e) => {
     if (e.target.className === 'tag') {
@@ -185,6 +174,7 @@ const createFilterButton = (e) => {
 };
 
 //----Remove Button Or Clear All Buttons
+
 const removeFilterButtons = e => {
     if (e.target.id === 'clear') {
         while (filterButtons.firstChild) {
@@ -205,5 +195,23 @@ const removeFilterButtons = e => {
     }
     if (filterButtons.children.length === 0) {
         filters.style.display = 'none';
+    }
+}
+
+//--------------Checking if job listing matches filters set
+
+const checkForMatchingFilter = () => {
+    for (let i = 0; i < jobs.children.length; i++) {
+        let jobArray = [];
+        for (let z = 0; z < jobs.children[i].children[1].children.length; z++) {
+            jobArray.push(jobs.children[i].children[1].children[z].textContent)
+
+        }
+        for (let c = 0; c < filterArray.length; c++) {
+            if (!jobArray.includes(filterArray[c])) {
+                jobs.children[i].style.display = 'none';
+            }
+        }
+
     }
 }
